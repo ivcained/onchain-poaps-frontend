@@ -8,7 +8,6 @@ import { createSceneFromIdea, renderSvgScene, type Composition, type Density, ty
 const moods: Mood[] = ['ceremonial', 'calm', 'electric', 'playful', 'mysterious']
 const compositions: Composition[] = ['emblem', 'poster', 'landscape', 'abstract']
 const densities: Density[] = ['minimal', 'balanced', 'rich']
-const emptyRoot = `0x${'0'.repeat(64)}`
 
 export function App() {
   const [idea, setIdea] = useState('A midnight desert festival with a silver moon and three orange stars')
