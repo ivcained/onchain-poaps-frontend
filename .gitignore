@@ -4,4 +4,9 @@ dist/
 .env.*
 !.env.example
 coverage/
+.vite/
+*.local
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
 .DS_Store
