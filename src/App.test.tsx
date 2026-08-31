@@ -3,10 +3,12 @@ import { describe, expect, it } from 'vitest'
 import { App } from './App'
 
 describe('App', () => {
-  it('explains the configured scaffold without claiming contract workflows', () => {
+  it('renders the idea-to-SVG studio', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { name: 'Onchain POAPs' })).toBeInTheDocument()
-    expect(screen.getByText(/Contract workflows arrive in the next milestone/)).toBeInTheDocument()
-    expect(screen.getByText(/Base Sepolia \(84532\)/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Turn an idea into a collectible/ })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'SVG generator' })).toBeInTheDocument()
+    expect(screen.getByLabelText('What should this POAP feel like?')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '↻ New variation' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Generated POAP artwork' })).toBeInTheDocument()
   })
 })
