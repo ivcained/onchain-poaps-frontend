@@ -64,6 +64,9 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .allowlist-actions button { border: 1px solid var(--line); border-radius: .35rem; padding: .6rem .75rem; color: var(--ink-muted); background: #171613; font-size: .75rem; }
 .allowlist-actions button:not(:disabled):hover { border-color: var(--cyan); color: var(--cyan); }
 .allowlist-actions button:disabled { cursor: not-allowed; opacity: .45; }
+.signature-panel { display: grid; gap: .5rem; margin: 1rem 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+.signature-panel textarea { font-family: ui-monospace, SFMono-Regular, monospace; font-size: .72rem; }
+.claim-qr { width: 180px; padding: .7rem; background: #f5f0e8; }
 .event-card h3 { margin: .35rem 0; font-size: 2rem; }
 .event-card p { color: var(--ink-muted); line-height: 1.5; }
 .event-card dl { display: grid; gap: .7rem; margin: 1.2rem 0; }
