@@ -16,7 +16,15 @@ body { margin: 0; min-width: 320px; background: radial-gradient(circle at 76% 8%
 button, input, textarea { font: inherit; }
 button { cursor: pointer; }
 .app-shell { max-width: 1240px; margin: 0 auto; padding: 8rem 2rem 5rem; }
-.hero { max-width: 800px; margin-bottom: 4rem; }
+.hero { max-width: 1000px; margin-bottom: 2rem; }
+.hero-row { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.contract-link { flex: 0 0 auto; border-left: 1px solid var(--line); padding: .7rem 0 .7rem 1rem; color: var(--gold); font: .76rem ui-monospace, SFMono-Regular, monospace; line-height: 1.5; text-decoration: none; }
+.contract-link span { color: var(--ink-muted); }
+.chain-strip { display: flex; align-items: center; gap: .7rem; margin-bottom: 2rem; border-block: 1px solid var(--line); padding: .8rem 0; color: var(--ink-muted); font: .72rem ui-monospace, SFMono-Regular, monospace; }
+.status-dot { width: .5rem; height: .5rem; border-radius: 50%; background: #72d572; box-shadow: 0 0 10px #72d572; }
+.chain-strip strong { color: #f5f0e8; font-family: Inter, ui-sans-serif, sans-serif; font-size: .8rem; }
+.chain-stat { margin-left: auto; }
+.chain-id { color: #8e887d; }
 .eyebrow { color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.17em; text-transform: uppercase; }
 h1 { max-width: 760px; margin: 1rem 0; font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.88; letter-spacing: -0.075em; }
 .intro { max-width: 570px; color: var(--ink-muted); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.55; }
@@ -43,4 +51,4 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .step-number { color: var(--gold); font: 1.2rem ui-monospace, SFMono-Regular, monospace; }
 h2 { margin: .4rem 0 .8rem; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.04em; }
 .next-step p:not(.eyebrow) { color: var(--ink-muted); line-height: 1.6; }
-@media (max-width: 800px) { .app-shell { padding: 5rem 1.25rem 3rem; } .studio { grid-template-columns: 1fr; } .art-stage { min-height: 320px; } }
+@media (max-width: 800px) { .app-shell { padding: 5rem 1.25rem 3rem; } .hero-row { display: block; } .contract-link { display: inline-block; margin-top: 1.5rem; } .chain-strip { flex-wrap: wrap; } .chain-stat { margin-left: 0; flex-basis: 100%; } .studio { grid-template-columns: 1fr; } .art-stage { min-height: 320px; } }
