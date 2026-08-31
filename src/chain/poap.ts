@@ -20,6 +20,8 @@ export const poapAbi = [
   ] },
   { type: 'function', name: 'hasClaimed', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }, { name: '', type: 'address' }], outputs: [{ name: '', type: 'bool' }] },
   { type: 'function', name: 'balanceOf', stateMutability: 'view', inputs: [{ name: 'account', type: 'address' }, { name: 'id', type: 'uint256' }], outputs: [{ name: '', type: 'uint256' }] },
+  { type: 'event', name: 'NewEvent', inputs: [{ name: 'eventId', type: 'uint256', indexed: true }, { name: 'name', type: 'string', indexed: false }, { name: 'creator', type: 'address', indexed: true }], anonymous: false },
+  { type: 'event', name: 'NewMint', inputs: [{ name: 'eventId', type: 'uint256', indexed: true }, { name: 'recipient', type: 'address', indexed: true }], anonymous: false },
 ] as const
 
 export type PoapEvent = {
