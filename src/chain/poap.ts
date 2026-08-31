@@ -24,6 +24,7 @@ export const poapAbi = [
   { type: 'function', name: 'mintWithSignature', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'signature', type: 'bytes' }], outputs: [] },
   { type: 'function', name: 'updateAllowlistRoot', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'newRoot', type: 'bytes32' }], outputs: [] },
   { type: 'function', name: 'updateEventPublic', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'isPublic', type: 'bool' }], outputs: [] },
+  { type: 'function', name: 'creatorMint', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'recipients', type: 'address[]' }], outputs: [] },
   { type: 'event', name: 'NewEvent', inputs: [{ name: 'eventId', type: 'uint256', indexed: true }, { name: 'name', type: 'string', indexed: false }, { name: 'creator', type: 'address', indexed: true }], anonymous: false },
   { type: 'event', name: 'NewMint', inputs: [{ name: 'eventId', type: 'uint256', indexed: true }, { name: 'recipient', type: 'address', indexed: true }], anonymous: false },
 ] as const

@@ -68,6 +68,13 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .signature-panel textarea { font-family: ui-monospace, SFMono-Regular, monospace; font-size: .72rem; }
 .claim-qr { width: 180px; padding: .7rem; background: #f5f0e8; }
 .event-card h3 { margin: .35rem 0; font-size: 2rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.gallery-card { border: 1px solid var(--line); padding: 1rem; background: var(--paper); }
+.gallery-card img, .gallery-placeholder { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; margin-bottom: 1rem; background: #0b0a0d; }
+.gallery-placeholder { display: grid; place-items: center; color: var(--gold); font-size: 5rem; font-weight: 900; }
+.gallery-card h3 { margin: .35rem 0; }
+.gallery-card p { color: var(--ink-muted); line-height: 1.45; }
+.event-card h3 { margin: .35rem 0; font-size: 2rem; }
 .event-card p { color: var(--ink-muted); line-height: 1.5; }
 .event-card dl { display: grid; gap: .7rem; margin: 1.2rem 0; }
 .event-card dt { color: #8e887d; font-size: .65rem; }
