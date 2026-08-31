@@ -8,3 +8,7 @@ export async function initializeMiniApp(): Promise<boolean> {
     return false
   }
 }
+
+export function announceMiniAppReady(): void {
+  void initializeMiniApp()
+}
