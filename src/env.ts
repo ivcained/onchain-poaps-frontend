@@ -19,7 +19,13 @@ export function parseAppEnv(raw: Record<string, string | undefined>): AppEnv {
   }
 
   const rpcUrl = raw.VITE_BASE_SEPOLIA_RPC_URL
-  if (!rpcUrl || !/^https:\/\//.test(rpcUrl)) {
+  let parsedRpcUrl: URL
+  try {
+    parsedRpcUrl = new URL(rpcUrl ?? '')
+  } catch {
+    throw new Error('VITE_BASE_SEPOLIA_RPC_URL must be an HTTPS URL.')
+  }
+  if (parsedRpcUrl.protocol !== 'https:' || !parsedRpcUrl.hostname) {
     throw new Error('VITE_BASE_SEPOLIA_RPC_URL must be an HTTPS URL.')
   }
 

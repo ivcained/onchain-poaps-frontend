@@ -20,6 +20,8 @@ describe('parseAppEnv', () => {
     ['VITE_CHAIN_ID', '1'],
     ['VITE_POAP_CONTRACT_ADDRESS', 'not-an-address'],
     ['VITE_BASE_SEPOLIA_RPC_URL', 'http://insecure.example'],
+    ['VITE_BASE_SEPOLIA_RPC_URL', 'https://'],
+    ['VITE_BASE_SEPOLIA_RPC_URL', 'https://%'],
   ])('rejects invalid %s', (key, value) => {
     expect(() => parseAppEnv({ ...validEnv, [key]: value })).toThrow()
   })
