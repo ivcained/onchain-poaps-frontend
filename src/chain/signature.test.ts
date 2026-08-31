@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isSignatureWindowOpen, signatureClaimData, signatureClaimUrl, signatureMessageHash } from './signature'
+import { isSignatureWindowOpen, signatureClaimData, signatureClaimUrl, signatureMessageBytes, signatureMessageHash } from './signature'
 
 const recipient = '0x0000000000000000000000000000000000000001' as const
 const signature = '0x1234' as const
@@ -7,6 +7,7 @@ const signature = '0x1234' as const
 describe('signature mint helpers', () => {
   it('builds a stable EIP-191 hash from the contract payload', () => {
     expect(signatureMessageHash(1n, 84532, recipient)).toMatch(/^0x[0-9a-f]{64}$/)
+    expect(signatureMessageBytes(1n, 84532, recipient)).toMatch(/^0x[0-9a-f]+$/)
   })
   it('creates a claim URL and portable artifact', () => {
     const url = signatureClaimUrl('https://poaps.example', 7n, signature)
