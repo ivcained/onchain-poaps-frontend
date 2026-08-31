@@ -1,0 +1,40 @@
+{
+  "name": "onchain-poaps-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "test": "vitest run",
+    "test:integration": "node -e \"console.log('Integration tests are not implemented until the contract harness milestone.')\"",
+    "test:e2e": "node -e \"console.log('E2E tests are not implemented until the application workflow milestone.')\""
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "typescript-eslint": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "jsdom": "latest",
+    "prettier": "latest",
+    "typescript": "~5.6.2",
+    "vitest": "latest"
+  }
+}
