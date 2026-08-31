@@ -9,7 +9,7 @@ import { parseRecipients, creatorWindowOpen } from './chain/creator'
 import { registrationArgs, validateRegistration, type RegistrationInput } from './chain/registration'
 import { parseRoute, type AppRoute } from './app/routes'
 import { Gallery } from './app/Gallery'
-import { initializeMiniApp, announceMiniAppReady } from './app/farcaster'
+import { announceMiniAppReady, initializeMiniApp } from './app/farcaster'
 import { createSceneFromIdea, renderSvgScene, type Composition, type Density, type Mood } from './lib/svgScene'
 
 const moods: Mood[] = ['ceremonial', 'calm', 'electric', 'playful', 'mysterious']

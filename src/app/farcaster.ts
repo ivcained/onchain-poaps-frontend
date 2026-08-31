@@ -1,5 +1,9 @@
 import { sdk } from '@farcaster/miniapp-sdk'
 
+export function announceMiniAppReady(): void {
+  void sdk.actions.ready().catch(() => undefined)
+}
+
 export async function initializeMiniApp(): Promise<boolean> {
   try {
     await sdk.actions.ready()
@@ -7,8 +11,4 @@ export async function initializeMiniApp(): Promise<boolean> {
   } catch {
     return false
   }
-}
-
-export function announceMiniAppReady(): void {
-  void initializeMiniApp()
 }
