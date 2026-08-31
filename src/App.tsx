@@ -9,6 +9,7 @@ import { parseRecipients, creatorWindowOpen } from './chain/creator'
 import { registrationArgs, validateRegistration, type RegistrationInput } from './chain/registration'
 import { parseRoute, type AppRoute } from './app/routes'
 import { Gallery } from './app/Gallery'
+import { initializeMiniApp } from './app/farcaster'
 import { createSceneFromIdea, renderSvgScene, type Composition, type Density, type Mood } from './lib/svgScene'
 
 const moods: Mood[] = ['ceremonial', 'calm', 'electric', 'playful', 'mysterious']
@@ -38,6 +39,7 @@ export function App() {
   const [signature, setSignature] = useState('')
   const [recipientInput, setRecipientInput] = useState('')
   const [claimQr, setClaimQr] = useState<string | null>(null)
+  const [miniAppReady, setMiniAppReady] = useState(false)
   const [route, setRoute] = useState<AppRoute>(() => parseRoute(window.location.pathname, window.location.search))
   const [signatureStatus, setSignatureStatus] = useState<string | null>(null)
   const [recipientText, setRecipientText] = useState('')
@@ -49,6 +51,8 @@ export function App() {
   const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
   useEffect(() => { readTotalEvents().then(setTotalEvents).catch(() => setChainError('Contract read unavailable — check the RPC connection.')) }, [])
+  useEffect(() => { initializeMiniApp().then(setMiniAppReady) }, [])
+  useEffect(() => { const onPopState = () => setRoute(parseRoute(window.location.pathname, window.location.search)); window.addEventListener('popstate', onPopState); return () => window.removeEventListener('popstate', onPopState) }, [])
   useEffect(() => { if (!eventLookup) return; setEventError(null); setEvent(null); setEventSvg(null); readPoapEvent(eventLookup).then(async (loaded) => { setEvent(loaded); try { setEventSvg(await readOnchainSvg(loaded.svgImage)) } catch { setEventError('Event metadata loaded, but its artwork could not be read.') } }).catch(() => setEventError('No event found for that ID.')) }, [eventLookup])
   useEffect(() => { if (!eventLookup || !address) return; readClaimed(eventLookup, address).then(setClaimed).catch(() => setClaimed(false)) }, [eventLookup, address, isConfirmed])
   const svg = renderSvgScene(createSceneFromIdea(`${idea} variation ${variation}`, { mood, composition, density, title }))
