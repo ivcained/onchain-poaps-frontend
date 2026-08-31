@@ -31,7 +31,9 @@ export function parseAppEnv(raw: Record<string, string | undefined>): AppEnv {
 }
 
 export const appEnv =
-  import.meta.env.VITE_CHAIN_ID === undefined
+  import.meta.env.VITE_CHAIN_ID === undefined &&
+  import.meta.env.VITE_POAP_CONTRACT_ADDRESS === undefined &&
+  import.meta.env.VITE_BASE_SEPOLIA_RPC_URL === undefined
     ? ({
         chainId: BASE_SEPOLIA_CHAIN_ID,
         poapContractAddress: '0xC3249356a483fbe17d5355D39105D2eA666d9de6',
