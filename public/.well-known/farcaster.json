@@ -7,10 +7,9 @@
   "miniapp": {
     "version": "1",
     "name": "Onchain POAPs",
-    "iconUrl": "https://REPLACE_WITH_DEPLOYED_HOST/icon.png",
-    "homeUrl": "https://REPLACE_WITH_DEPLOYED_HOST/",
-    "splashImageUrl": "https://REPLACE_WITH_DEPLOYED_HOST/splash.png",
-    "splashBackgroundColor": "#11100e",
-    "webhookUrl": "https://REPLACE_WITH_DEPLOYED_HOST/api/webhook"
+    "iconUrl": "https://ocp.ivc.lol/assets/farcaster/icon.png",
+    "homeUrl": "https://ocp.ivc.lol/",
+    "splashImageUrl": "https://ocp.ivc.lol/assets/farcaster/splash.png",
+    "splashBackgroundColor": "#11100e"
   }
 }
