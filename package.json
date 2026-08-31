@@ -14,11 +14,13 @@
     "test:e2e": "node -e \"console.log('E2E tests are not implemented until the application workflow milestone.')\""
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.85.5",
     "@vitejs/plugin-react": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "viem": "^2.56.1",
-    "vite": "latest"
+    "vite": "latest",
+    "wagmi": "^2.19.5"
   },
   "devDependencies": {
     "@eslint/js": "latest",

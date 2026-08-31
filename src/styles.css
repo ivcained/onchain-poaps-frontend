@@ -19,6 +19,10 @@ button { cursor: pointer; }
 .hero { max-width: 1000px; margin-bottom: 2rem; }
 .hero-row { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
 .contract-link { flex: 0 0 auto; border-left: 1px solid var(--line); padding: .7rem 0 .7rem 1rem; color: var(--gold); font: .76rem ui-monospace, SFMono-Regular, monospace; line-height: 1.5; text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: .8rem; }
+.wallet-button, .switch-button { border: 1px solid var(--cyan); border-radius: 999px; padding: .68rem .9rem; color: var(--cyan); background: transparent; font-size: .78rem; }
+.wallet-button:hover, .switch-button:hover { color: #11100e; background: var(--cyan); }
+.wallet-button:disabled, .switch-button:disabled { cursor: wait; opacity: .65; }
 .contract-link span { color: var(--ink-muted); }
 .chain-strip { display: flex; align-items: center; gap: .7rem; margin-bottom: 2rem; border-block: 1px solid var(--line); padding: .8rem 0; color: var(--ink-muted); font: .72rem ui-monospace, SFMono-Regular, monospace; }
 .status-dot { width: .5rem; height: .5rem; border-radius: 50%; background: #72d572; box-shadow: 0 0 10px #72d572; }

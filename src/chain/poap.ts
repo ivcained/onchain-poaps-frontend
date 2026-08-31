@@ -6,50 +6,29 @@ export const POAP_CONTRACT_ADDRESS = '0xC3249356a483fbe17d5355D39105D2eA666d9de6
 export const BASESCAN_SEPOLIA_URL = 'https://sepolia.basescan.org'
 
 export const poapAbi = [
-  {
-    type: 'function', name: 'totalEvents', stateMutability: 'view', inputs: [], outputs: [{ name: '', type: 'uint256' }],
-  },
-  {
-    type: 'function', name: 'events', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }], outputs: [
-      { name: 'name', type: 'string' }, { name: 'description', type: 'string' }, { name: 'eventDate', type: 'uint256' },
-      { name: 'location', type: 'string' }, { name: 'allowlistRoot', type: 'bytes32' }, { name: 'svgImage', type: 'address' },
-      { name: 'creator', type: 'address' }, { name: 'createdAt', type: 'uint256' }, { name: 'externalUrl', type: 'string' },
-      { name: 'isSoulbound', type: 'bool' }, { name: 'isPublic', type: 'bool' },
-    ],
-  },
-  {
-    type: 'function', name: 'hasClaimed', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }, { name: '', type: 'address' }], outputs: [{ name: '', type: 'bool' }],
-  },
-  {
-    type: 'function', name: 'balanceOf', stateMutability: 'view', inputs: [{ name: 'account', type: 'address' }, { name: 'id', type: 'uint256' }], outputs: [{ name: '', type: 'uint256' }],
-  },
+  { type: 'function', name: 'totalEvents', stateMutability: 'view', inputs: [], outputs: [{ name: '', type: 'uint256' }] },
+  { type: 'function', name: 'registerEvent', stateMutability: 'nonpayable', inputs: [
+    { name: 'name', type: 'string' }, { name: 'description', type: 'string' }, { name: 'eventDate', type: 'uint256' },
+    { name: 'location', type: 'string' }, { name: 'allowlistRoot', type: 'bytes32' }, { name: 'svgImage', type: 'string' },
+    { name: 'externalUrl', type: 'string' }, { name: 'flags', type: 'uint8' },
+  ], outputs: [{ name: 'eventId', type: 'uint256' }] },
+  { type: 'function', name: 'events', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }], outputs: [
+    { name: 'name', type: 'string' }, { name: 'description', type: 'string' }, { name: 'eventDate', type: 'uint256' },
+    { name: 'location', type: 'string' }, { name: 'allowlistRoot', type: 'bytes32' }, { name: 'svgImage', type: 'address' },
+    { name: 'creator', type: 'address' }, { name: 'createdAt', type: 'uint256' }, { name: 'externalUrl', type: 'string' },
+    { name: 'isSoulbound', type: 'bool' }, { name: 'isPublic', type: 'bool' },
+  ] },
+  { type: 'function', name: 'hasClaimed', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }, { name: '', type: 'address' }], outputs: [{ name: '', type: 'bool' }] },
+  { type: 'function', name: 'balanceOf', stateMutability: 'view', inputs: [{ name: 'account', type: 'address' }, { name: 'id', type: 'uint256' }], outputs: [{ name: '', type: 'uint256' }] },
 ] as const
 
 export type PoapEvent = {
-  name: string
-  description: string
-  eventDate: bigint
-  location: string
-  allowlistRoot: `0x${string}`
-  svgImage: Address
-  creator: Address
-  createdAt: bigint
-  externalUrl: string
-  isSoulbound: boolean
-  isPublic: boolean
+  name: string; description: string; eventDate: bigint; location: string; allowlistRoot: `0x${string}`; svgImage: Address
+  creator: Address; createdAt: bigint; externalUrl: string; isSoulbound: boolean; isPublic: boolean
 }
 
 export const explorerAddressUrl = `${BASESCAN_SEPOLIA_URL}/address/${POAP_CONTRACT_ADDRESS}`
 export const explorerEventUrl = (eventId: bigint | number | string) => `${BASESCAN_SEPOLIA_URL}/token/${POAP_CONTRACT_ADDRESS}?a=${eventId}`
-
-export function registrationFlags(isSoulbound: boolean, isPublic: boolean): number {
-  return (isSoulbound ? 1 : 0) + (isPublic ? 2 : 0)
-}
-
-export function creatorDeadline(createdAt: bigint): bigint {
-  return createdAt + 30n * 24n * 60n * 60n
-}
-
-export function signatureDeadline(createdAt: bigint): bigint {
-  return createdAt + 37n * 24n * 60n * 60n
-}
+export function registrationFlags(isSoulbound: boolean, isPublic: boolean): number { return (isSoulbound ? 1 : 0) + (isPublic ? 2 : 0) }
+export function creatorDeadline(createdAt: bigint): bigint { return createdAt + 30n * 24n * 60n * 60n }
+export function signatureDeadline(createdAt: bigint): bigint { return createdAt + 37n * 24n * 60n * 60n }
