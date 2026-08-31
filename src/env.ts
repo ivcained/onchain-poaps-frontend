@@ -32,7 +32,7 @@ export function parseAppEnv(raw: Record<string, string | undefined>): AppEnv {
   return {
     chainId: BASE_SEPOLIA_CHAIN_ID,
     poapContractAddress: address as `0x${string}`,
-    baseSepoliaRpcUrl: rpcUrl,
+    baseSepoliaRpcUrl: rpcUrl as string,
   }
 }
 
