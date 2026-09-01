@@ -20,6 +20,7 @@ export const poapAbi = [
   ] },
   { type: 'function', name: 'hasClaimed', stateMutability: 'view', inputs: [{ name: '', type: 'uint256' }, { name: '', type: 'address' }], outputs: [{ name: '', type: 'bool' }] },
   { type: 'function', name: 'balanceOf', stateMutability: 'view', inputs: [{ name: 'account', type: 'address' }, { name: 'id', type: 'uint256' }], outputs: [{ name: '', type: 'uint256' }] },
+  { type: 'function', name: 'mint', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }], outputs: [] },
   { type: 'function', name: 'allowlistMint', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'merkleProof', type: 'bytes32[]' }], outputs: [] },
   { type: 'function', name: 'mintWithSignature', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'signature', type: 'bytes' }], outputs: [] },
   { type: 'function', name: 'updateAllowlistRoot', stateMutability: 'nonpayable', inputs: [{ name: 'eventId', type: 'uint256' }, { name: 'newRoot', type: 'bytes32' }], outputs: [] },
