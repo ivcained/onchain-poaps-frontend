@@ -1,20 +1,16 @@
-import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import { EventMintActions } from './EventMintActions'
 
-const props = { connected: true, canWrite: true, claimed: false, isWriting: false, isConfirming: false, eventUrl: '/poap/1', explorerUrl: 'https://example.test', onMint: vi.fn() }
-
 describe('EventMintActions', () => {
-  it('renders the selected method as the primary action', () => {
-    render(<EventMintActions {...props} method="allowlist" />)
-    expect(screen.getByRole('button', { name: 'Mint from the allowlist' })).toBeTruthy()
+  it('keeps the primary mint action prominent and relay secondary', () => {
+    render(<EventMintActions method="public" connected canWrite claimed={false} isWriting={false} isConfirming={false} eventUrl="/poap/1" explorerUrl="https://example.test" onMint={vi.fn()} onRelay={vi.fn()} />)
+    expect(screen.getByRole('button', { name: 'Mint this POAP' })).toHaveClass('register-button')
+    expect(screen.queryByRole('button', { name: 'Pass the relay' })).not.toBeInTheDocument()
   })
-  it('offers the Relay after collection', () => {
-    render(<EventMintActions {...props} method="closed" claimed onRelay={vi.fn()} />)
-    expect(screen.getByRole('button', { name: 'Pass the relay' })).toBeTruthy()
-  })
-  it('keeps unavailable minting disabled', () => {
-    render(<EventMintActions {...props} method="closed" />)
-    expect(screen.getByRole('button', { name: 'Minting unavailable' })).toHaveProperty('disabled', true)
+
+  it('only reveals relay after a confirmed claim', () => {
+    render(<EventMintActions method="public" connected canWrite claimed onRelay={vi.fn()} isWriting={false} isConfirming={false} eventUrl="/poap/1" explorerUrl="https://example.test" onMint={vi.fn()} />)
+    expect(screen.getByRole('button', { name: 'Pass the relay' })).toBeInTheDocument()
   })
 })

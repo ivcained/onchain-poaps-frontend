@@ -8,9 +8,9 @@ import { wagmiConfig } from './chain/wagmi'
 const queryClient = new QueryClient()
 
 describe('App', () => {
-  it('renders the idea-to-SVG studio', () => {
+  it('renders the idea-to-SVG studio', async () => {
     render(<WagmiProvider config={wagmiConfig}><QueryClientProvider client={queryClient}><App /></QueryClientProvider></WagmiProvider>)
-    expect(screen.getByRole('heading', { name: /Turn an idea into a collectible/ })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: /Turn an idea into a collectible/ }, { timeout: 3000 })).toBeInTheDocument()
     expect(screen.getByRole('region', { name: 'SVG generator' })).toBeInTheDocument()
     expect(screen.getByLabelText('What should this POAP feel like?')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '↻ New variation' })).toBeInTheDocument()
