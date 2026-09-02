@@ -95,4 +95,20 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .step-number { color: var(--gold); font: 1.2rem ui-monospace, SFMono-Regular, monospace; }
 h2 { margin: .4rem 0 .8rem; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.04em; }
 .next-step p:not(.eyebrow) { color: var(--ink-muted); line-height: 1.6; }
-@media (max-width: 800px) { .app-shell { padding: 5rem 1.25rem 3rem; } .hero-row { display: block; } .contract-link { display: inline-block; margin-top: 1.5rem; } .chain-strip { flex-wrap: wrap; } .chain-stat { margin-left: 0; flex-basis: 100%; } .studio { grid-template-columns: 1fr; } .event-card { grid-template-columns: 1fr; } .lookup-row { flex-direction: column; } .art-stage { min-height: 320px; } }
+.mini-app-shell { padding: 1rem; max-width: 100%; }
+.mini-app-shell .hero { margin-bottom: 1rem; }
+.mini-app-shell .hero-row { align-items: start; }
+.mini-app-shell .hero h1 { font-size: clamp(1.65rem, 8vw, 2.4rem); line-height: 1.05; margin: .4rem 0 .6rem; }
+.mini-app-shell .intro { font-size: .9rem; line-height: 1.4; margin: 0; }
+.mini-app-shell .contract-link, .mini-app-shell .mini-app-chain-strip { display: none; }
+.mini-app-shell .header-actions { min-height: 0; }
+.mini-app-shell .studio { grid-template-columns: 1fr; gap: .75rem; }
+.mini-app-shell .preview-panel { order: 0; }
+.mini-app-shell .controls-panel { order: 1; }
+.mini-app-shell .art-stage { min-height: 230px; }
+.mini-app-shell .controls-panel > label:first-child, .mini-app-shell .controls-panel > textarea:first-of-type, .mini-app-shell .controls-panel > label:nth-of-type(2), .mini-app-shell .controls-panel > input:first-of-type, .mini-app-shell .controls-panel > fieldset { display: none; }
+.mini-app-shell .register-button { position: sticky; bottom: .75rem; z-index: 4; box-shadow: 0 6px 24px rgba(0,0,0,.3); }
+.mini-app-shell .detail-section { padding-top: 1rem; }
+.mini-app-shell .detail-section h2 { font-size: 1.35rem; }
+.mini-app-shell .event-card { gap: 1rem; }
+.mini-app-shell .allowlist-panel, .mini-app-shell .signature-panel { padding: .75rem; }
