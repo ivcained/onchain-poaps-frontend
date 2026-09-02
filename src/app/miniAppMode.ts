@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { sdk } from '@farcaster/miniapp-sdk'
 
-export type MiniAppMode = 'standalone' | 'miniapp'
+export type MiniAppMode = 'resolving' | 'standalone' | 'miniapp'
 
 export async function detectMiniAppMode(): Promise<MiniAppMode> {
   try {
@@ -13,7 +13,7 @@ export async function detectMiniAppMode(): Promise<MiniAppMode> {
 }
 
 export function useMiniAppMode(): MiniAppMode {
-  const [mode, setMode] = useState<MiniAppMode>('standalone')
+  const [mode, setMode] = useState<MiniAppMode>('resolving')
   useEffect(() => { let active = true; detectMiniAppMode().then((next) => { if (active) setMode(next) }); return () => { active = false } }, [])
   return mode
 }
