@@ -79,7 +79,9 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .event-card dl { display: grid; gap: .7rem; margin: 1.2rem 0; }
 .event-card dt { color: #8e887d; font-size: .65rem; }
 .event-card dd { margin: .2rem 0 0; color: #f5f0e8; font: .78rem ui-monospace, SFMono-Regular, monospace; }
-.event-actions { display: grid; gap: .8rem; }
+.event-actions { display: grid; gap: .55rem; margin-top: 1rem; }
+.event-actions .field-hint { display: block; }
+.mini-app-shell .event-actions { position: sticky; bottom: .75rem; z-index: 5; padding: .5rem; background: rgba(17,16,14,.96); border: 1px solid var(--line); }
 .claimed { color: #72d572; font-weight: 800; }
 .toggle { display: flex; align-items: center; gap: .45rem; padding: .25rem 0; font-size: .82rem; }
 .toggle input { width: auto; accent-color: var(--gold); }
