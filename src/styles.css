@@ -98,9 +98,12 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .share-event-copy dl { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1rem 0; }
 .share-event-copy dt { color: #8e887d; font-size: .65rem; }
 .share-event-copy dd { margin: .2rem 0 0; color: #f5f0e8; font: .78rem ui-monospace, SFMono-Regular, monospace; }
+.share-event-copy, .share-event-copy * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.share-event-copy .event-actions, .share-event-copy .event-actions * { min-width: 0; }
 .creator-controls { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: .8rem; }
 .creator-controls summary { cursor: pointer; color: var(--gold); font-weight: 800; }
 @media (max-width: 700px) { .share-event-hero { grid-template-columns: 1fr; gap: 1rem; } .share-event-art { min-height: 220px; } }
+@media (max-width: 700px) { .share-event-hero { width: 100%; box-sizing: border-box; padding: .75rem; } .share-event-copy dl { gap: .75rem 1rem; } .share-event-copy .event-actions { width: 100%; box-sizing: border-box; } }
 .next-step { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; max-width: 760px; margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .step-number { color: var(--gold); font: 1.2rem ui-monospace, SFMono-Regular, monospace; }
 h2 { margin: .4rem 0 .8rem; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.04em; }
