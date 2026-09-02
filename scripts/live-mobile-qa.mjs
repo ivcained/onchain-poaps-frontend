@@ -1,3 +1,4 @@
+/* global process, console, document, window, getComputedStyle */
 import { chromium } from 'playwright'
 
 const baseUrl = process.env.QA_BASE_URL ?? 'https://ocp.ivc.lol'
