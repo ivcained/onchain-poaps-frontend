@@ -1,6 +1,5 @@
 import { sdk } from '@farcaster/miniapp-sdk'
-import type { ShareMoment } from '../social/sharePayload'
-import { shareText } from '../social/sharePayload'
+import { shareText, eventShareUrl, type ShareMoment } from '../social/sharePayload'
 
 export function announceMiniAppReady(): void {
   void sdk.actions.ready().catch(() => undefined)
@@ -18,7 +17,7 @@ export async function initializeMiniApp(): Promise<boolean> {
 export async function composeShare(moment: ShareMoment, origin = window.location.origin): Promise<'composed' | 'shared' | 'copied'> {
   const text = shareText(origin, moment)
   try {
-    await sdk.actions.composeCast({ text, embeds: [new URL(origin).toString()] })
+    await sdk.actions.composeCast({ text, embeds: [eventShareUrl(origin, moment.eventId)] })
     return 'composed'
   } catch {
     if (navigator.share) {
