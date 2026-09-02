@@ -122,3 +122,93 @@ h2 { margin: .4rem 0 .8rem; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing:
 .mini-app-shell .detail-section h2 { font-size: 1.35rem; }
 .mini-app-shell .event-card { gap: 1rem; }
 .mini-app-shell .allowlist-panel, .mini-app-shell .signature-panel { padding: .75rem; }
+:root {
+  --event-ink: #f7f5ef;
+  --event-muted: #aaa8a1;
+  --event-panel: #171716;
+  --event-line: rgba(247, 245, 239, 0.14);
+  --event-accent: #d8ff5c;
+}
+
+/* Event-first polish: let the artifact lead, with quiet supporting chrome. */
+.event-page {
+  width: min(100% - 32px, 1120px);
+  margin-inline: auto;
+}
+
+.event-artwork {
+  width: 100%;
+  max-height: min(68vh, 720px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  background: var(--event-panel);
+}
+
+.event-artwork img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.event-meta,
+.event-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.event-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid var(--event-line);
+  border-radius: 999px;
+  color: var(--event-muted);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.event-chip--status {
+  color: var(--event-accent);
+  border-color: color-mix(in srgb, var(--event-accent) 42%, transparent);
+}
+
+.event-primary-cta {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* There should be one action owner; secondary sticky bars must not compete. */
+.event-page .sticky-actions ~ .sticky-actions,
+.event-page .duplicate-sticky-actions {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .event-page { width: min(100% - 24px, 560px); }
+  .event-artwork { max-height: none; }
+  .event-primary-cta { width: 100%; }
+}
+
+@media (min-width: 640px) {
+  .event-artwork { aspect-ratio: 4 / 3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-page *, .event-page *::before, .event-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
