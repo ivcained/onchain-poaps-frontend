@@ -55,10 +55,10 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .registration-fields { display: grid; gap: .55rem; margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--line); }
 .detail-section { margin-top: 5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .detail-heading { max-width: 620px; }
-.lookup-row { display: flex; gap: .7rem; max-width: 560px; margin-top: 1.5rem; }
+.lookup-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: stretch; gap: .7rem; max-width: 560px; margin-top: 1.5rem; }
 .lookup-row input { flex: 1 1 auto; min-width: 0; }
 .lookup-row button { border: 1px solid var(--gold); border-radius: .35rem; padding: .7rem 1rem; color: #171613; background: var(--gold); font-weight: 800; white-space: nowrap; }
-@media (max-width: 420px) { .lookup-row { gap: .5rem; } .lookup-row button { padding-inline: .65rem; font-size: .78rem; } }
+@media (max-width: 420px) { .lookup-row { grid-template-columns: 1fr; gap: .5rem; } .lookup-row button { width: 100%; padding-inline: .65rem; font-size: .78rem; } }
 .event-card { display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem; max-width: 760px; margin-top: 1.5rem; border: 1px solid var(--line); padding: 1.2rem; background: var(--paper); }
 .event-art { display: grid; aspect-ratio: 1; place-items: center; color: var(--gold); background: radial-gradient(circle, #46361b, #12100e 68%); font-size: 6rem; font-weight: 900; }
 .event-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
