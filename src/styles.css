@@ -96,7 +96,7 @@ fieldset { margin: .75rem 0 0; padding: 0; border: 0; }
 .register-button:hover:not(:disabled) { background: #f5d48a; }
 .register-button:disabled { cursor: not-allowed; opacity: .55; }
 .tx-link { color: var(--cyan); font: .78rem ui-monospace, SFMono-Regular, monospace; }
-.share-event-hero { display: grid; grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); gap: 2rem; margin: 1rem 0 2rem; border: 1px solid var(--gold); padding: 1rem; background: var(--paper); }
+.event-first-hidden { display: none; }
 .share-event-art { min-height: 260px; display: grid; place-items: center; overflow: hidden; background: #0b0a0d; border: 1px solid #635940; color: var(--gold); font-size: 6rem; font-weight: 900; }
 .share-event-art img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 .share-event-copy h2 { margin: .3rem 0 .7rem; font-size: clamp(2rem, 5vw, 4rem); }
